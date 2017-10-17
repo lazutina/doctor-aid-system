@@ -1,0 +1,39 @@
+<%= form_for(user) do |f| %>
+    <% if user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+          <ul>
+            <% user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label "#{ t('.username') }" %>
+      <%= f.text_field :name, class:"form-control", placeholder: "#{ t('.username') }" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "#{ t('.useremail') }" %>
+      <%= f.text_field :email, class:"form-control", placeholder: "#{ t('.useremail') }" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "#{ t('.password') }" %>
+      <%= f.password_field :password, class:"form-control", placeholder: "#{ t('.password') }" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label "#{ t('.passwordconfirmation') }" %>
+      <%= f.password_field :password_confirmation, class:"form-control", placeholder: "#{ t('.passwordconfirmation') }" %>
+    </div>
+
+    <div class="form-group pull-right">
+      <%= f.submit "&nbsp;&nbsp;&nbsp;&nbsp;#{t('.save')}&nbsp;&nbsp;&nbsp;&nbsp;".html_safe, class: "btn btn-primary" %>
+      <%= f.button "&nbsp;&nbsp;&nbsp;&nbsp;#{t('.reset')}&nbsp;&nbsp;&nbsp;&nbsp;".html_safe, class: "btn btn-primary btn-danger", type: "reset" %>
+    </div>
+
+<% end %>

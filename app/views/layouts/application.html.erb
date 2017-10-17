@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t('app.title') %></title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all'%>
+</head>
+
+<body>
+<div id="wrapper">
+
+  <%= render 'layouts/header' %>
+
+  <div id="page-wrapper">
+
+    <% flash.each do |key, value| %>
+        <div class="alert alert-success" style="margin-top:20px"><%= value %></div>
+    <% end %>
+
+    <%= yield :body %>
+  </div>
+
+</div>
+
+<%= javascript_include_tag 'application'%>
+<%= yield :javascript %>
+
+</body>
+</html>

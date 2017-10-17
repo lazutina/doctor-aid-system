@@ -1,0 +1,59 @@
+en:
+  app:
+    title: "Doctor Aid System"
+  layouts:
+    header:
+      home: "Home Page"
+      user: "User Management"
+      product: "Product Management"
+      login: "Log In"
+      logout: "Log Out"
+  sessions:
+    new:
+      pleaselogin: "Please Log In"
+      login: "Log In"
+      email: "Email"
+      password: "Password"
+      rememberme: "Remember Me"
+      login_error: "Please type your email and password correctly."
+  sites:
+    index:
+      title: "Home Page"
+  products:
+    index:
+      title: "Product Management"
+      productlist: "Product List"
+      new: "Create Products"
+    new:
+      title: "Create New Product"
+      productinfo: "Product Info"
+      excelfile: "Excel File"
+      save: "Save"
+      reset: "Reset"
+      back: "Back"
+  users:
+    index:
+      title: "User Management"
+      user: "User"
+      no: "No"
+      name: "Name"
+      email: "Email"
+      admin: "Admin"
+      user: "User"
+      createdat: "Created At"
+      updatedat: "Updated At"
+      action: "Action"
+      update: "Update"
+      destroy: "Delete"
+      new: "Create New User"
+    new:
+      title: "Create New User"
+      userinfo: "User Info"
+      back: "Back"
+    form:
+      username: "User Name"
+      useremail: "User Email"
+      password: "Password"
+      passwordconfirmation: "Password Confirmation"
+      save: "Save"
+      reset: "Reset"

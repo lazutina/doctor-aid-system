@@ -1,0 +1,14 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: dasysdb
+  pool: 5
+  username: root
+  password: pust
+  socket: /tmp/mysql.sock
+
+test:
+  database: db/test.sqlite3
+
+production:
+  database: db/production.sqlite3

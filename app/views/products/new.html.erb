@@ -1,0 +1,91 @@
+<% content_for(:body) do %>
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header"><%= t('.title') %></h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <%= t('.productinfo') %>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-9"></div>
+              <div class="col-lg-2">
+                <%= link_to "&nbsp;&nbsp;&nbsp;&nbsp;#{t('.back')}&nbsp;&nbsp;&nbsp;&nbsp;".html_safe, products_path, class:"btn btn-primary btn-lg btn-block" %>
+              </div>
+              <div class="col-lg-1"></div>
+            </div>
+            <div class="row">
+              <div class="col-lg-1"></div>
+              <div class="col-lg-10">
+
+                <%= form_tag products_path, multipart: true do |f| %>
+                    <div class="form-group">
+                      <%= label_tag :file, "#{ t('.excelfile') }"%>
+                      <%= file_field_tag :file, :class => "form-control", placeholder: "#{ t('.excelfile') }"  %>
+                    </div>
+                    <div class="form-group pull-right">
+                      <%= submit_tag "&nbsp;&nbsp;&nbsp;&nbsp;#{t('.save')}&nbsp;&nbsp;&nbsp;&nbsp;".html_safe, :class => "btn btn-primary" %>
+                      <%= submit_tag "&nbsp;&nbsp;&nbsp;&nbsp;#{t('.reset')}&nbsp;&nbsp;&nbsp;&nbsp;".html_safe, :class => "btn btn-primary btn-danger", :type => "reset"  %>
+                    </div>
+                <% end %>
+
+              </div>
+            </div>
+
+            <% if @products.length > 0 %>
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th><%= t('.no') %></th>
+                  <th><%= t('.account_unit') %></th>
+                  <th><%= t('.account') %></th>
+                  <th><%= t('.sub_account') %></th>
+                  <th><%= t('.vendor') %></th>
+                  <th><%= t('.lawson_item_number') %>
+                  <th><%= t('.description') %>
+                  <th><%= t('.mfg_code') %>
+                  <th><%= t('.mfg_nbr') %>
+                  <th><%= t('.po_date') %>
+                  <th><%= t('.po_number') %>
+                  <th><%= t('.po_line') %>
+                  <th><%= t('.qty') %>
+                  <th><%= t('.uom') %>
+                  <th><%= t('.unit_cost') %>
+                  <th><%= t('.total_cost') %>
+                </tr>
+                </thead>
+                <tbody>
+                <% @products.each_with_index  do |product, index| %>
+                    <tr class="<%= cycle('success', 'info') %>">
+                      <td><%= index + 1 %></td>
+                      <td><%= product.account_unit %></td>
+                      <td><%= product.account %></td>
+                      <td><%= product.sub_account %></td>
+                      <th><%= product.vendor %></th>
+                      <th><%= product.lawson_item_number %></th>
+                      <th><%= product.description %></th>
+                      <th><%= product.mfg_code %></th>
+                      <th><%= product.mfg_nbr %></th>
+                      <th><%= product.po_date %></th>
+                      <th><%= product.po_line %></th>
+                      <th><%= product.po_line %></th>
+                      <th><%= product.qty %></th>
+                      <th><%= product.uom %></th>
+                      <th><%= product.unit_cost %></th>
+                      <th><%= product.total_cost %></th>
+                    </tr>
+                <% end %>
+                </tbody>
+              </table>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

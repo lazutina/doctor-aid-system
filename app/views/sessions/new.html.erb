@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="login-panel panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= t('.pleaselogin')%></h3>
+        </div>
+        <div class="panel-body">
+          <% flash.each do |key, value| %>
+              <div class="alert alert-success" style="margin-top:20px"><%= value %></div>
+          <% end %>
+          <%= form_for(:session, url: login_path) do |f| %>
+              <fieldset>
+                <div class="form-group">
+                  <%= f.text_field :email, class:"form-control", placeholder: "#{ t('.email') }", type: "email" %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password, class:"form-control", placeholder: "#{ t('.password') }" %>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <%= f.check_box :remember_me%><%= t('.rememberme') %>
+                  </label>
+                </div>
+                <%= f.submit "&nbsp;&nbsp;&nbsp;&nbsp;#{t('.login')}&nbsp;&nbsp;&nbsp;&nbsp;".html_safe, class: "btn btn-lg btn-success btn-block" %>
+              </fieldset>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
